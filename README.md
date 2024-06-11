@@ -1,1 +1,1 @@
-# algorithm
+Practicing algorithm via JS and Jest.
