@@ -1,7 +1,7 @@
 /**
  * Bubble Sort
  * -> Move the largest number to bottom
- * Time Complexity = n(n-1-i)/2 ~= O(n²)
+ * Time Complexity = n ( n - 1 - i ) / 2 ~= O(n²)
  * if best case, Time Complexity = O(n)
  */
 
