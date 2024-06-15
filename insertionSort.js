@@ -1,7 +1,7 @@
 /**
  * Insertion Sort
  * -> Find correct place to insert
- * Time Complexity ~= O(n²)
+ * Time Complexity = O(n²)
  * if best case, Time Complexity = O(n)
  */
 

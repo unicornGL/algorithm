@@ -1,7 +1,7 @@
 /**
  * Selection Sort
  * -> Find the smallest number and move to the end of sorted numbers
- * Time Complexity = n ( n - 1 ) / 2 ~= O(n²)
+ * Time Complexity = n ( n - 1 ) / 2 = O(n²)
  */
 
 export default selectionSort = (arr) => {
