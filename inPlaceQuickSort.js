@@ -1,6 +1,6 @@
 /**
  * In-place Quick Sort
- * -> 
+ * -> Recursively partition and find pivot, than merge
  * Time Complexity = O(n log n)
  */
 

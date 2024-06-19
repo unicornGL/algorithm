@@ -1,6 +1,6 @@
 /**
  * Simple Quick Sort
- * -> Recursively set a pivot, put numbers smaller than pivot in left array and numbers larger than pivot in right array
+ * -> Recursively set a pivot, put numbers smaller than pivot in left array and numbers larger than pivot in right array, than merge
  * Time Complexity = O(n log n), but Space Complexity is larger than in-place version
  */
 
