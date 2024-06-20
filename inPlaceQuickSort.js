@@ -2,6 +2,7 @@
  * In-place Quick Sort
  * -> Recursively partition and find pivot, than merge
  * Time Complexity = O(n log n)
+ * if worst case (sorted array), Time Complexity = O(n²)
  */
 
 export default inPlaceQuickSort = (arr) => {
