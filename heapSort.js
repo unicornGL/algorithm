@@ -27,6 +27,7 @@ export default heapSort = (arr) => {
 
 /**
  * Build a max-heap from the array
+ * 
  * @param {Array} arr - The array to be turned into a max-heap
  */
 const buildMaxHeap = (arr) => {
@@ -40,6 +41,7 @@ const buildMaxHeap = (arr) => {
 
 /**
  * Max-heapify function to maintain max-heap property
+ * 
  * @param {Array} arr - The array being heapified
  * @param {number} i - The index of the root of the subtree
  * @param {number} heapSize - The size of the heap
