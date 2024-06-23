@@ -1,9 +1,15 @@
 /**
  * Random Quick Sort
- * -> Based on Quick Sort, but randomly pick pivot to prevent largest or smallest number become pivot while in sorted array
- * Time Complexity = O(n log n)
+ * -> Based on Quick Sort, but randomly pick pivot to prevent worst-case scenarios where the largest or smallest element becomes the pivot in an already sorted or nearly sorted array
+ * 
+ * Time Complexity:
+ * - Average case: O(n log n)
+ * - Worst case: O(n^2) (rare due to random pivot selection)
+ * - Best case: O(n log n)
+ * 
+ * @param {Array} arr - The array to be sorted
+ * @returns {Array} The sorted array
  */
-
 export default randomQuickSort = (arr) => {
     const length = arr.length
 
@@ -14,9 +20,16 @@ export default randomQuickSort = (arr) => {
     return [...randomQuickSort(arr.slice(0, pivotIndex)), arr[pivotIndex], ...randomQuickSort(arr.slice(pivotIndex + 1))]
 }
 
+/**
+ * Partitions the array around a randomly chosen pivot
+ * 
+ * @param {Array} arr - The array to be partitioned
+ * @returns {number} The final index of the pivot
+ */
 const partition = (arr) => {
     const length = arr.length
 
+    // select pivot randomly
     let pivotIndex = Math.floor(Math.random() * length)
 
     // move pivot to front
