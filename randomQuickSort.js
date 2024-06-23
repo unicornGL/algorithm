@@ -3,10 +3,28 @@
  * This algorithm is Based on Quick Sort but randomly pick pivot to prevent worst-case scenarios,
  * where the largest or smallest element becomes the pivot in an already sorted or nearly sorted array.
  * 
+ * Algorithm steps:
+ * 1. Randomly select a pivot element from the array.
+ * 2. Partition the array around the pivot: elements smaller than the pivot go to the left, larger to the right.
+ * 3. Recursively apply steps 1-2 to the sub-arrays on the left and right of the pivot.
+ * 
  * Time Complexity:
- * - Average case: O(n log n)
- * - Worst case: O(n²) (rare due to random pivot selection)
- * - Best case: O(n log n)
+ * - Average case: O(n log n) while the random pivot selection usually results in balanced partitions.
+ * - Worst case: O(n²) occurs if we consistently choose the smallest or largest element as the pivot.
+ * - Best case: O(n log n) when the pivot consistently divides the array into nearly equal halves.
+ * 
+ * The time complexity can be broken down as follows:
+ * 1. Partitioning: O(n) for each level of recursion
+ * 2. Number of recursion levels:
+ *    - Average and Best case: O(log n) levels
+ *    - Worst case: O(n) levels
+ * 3. Total time:
+ *    - Average and Best case: O(n) * O(log n) = O(n log n)
+ *    - Worst case: O(n) * O(n) = O(n²)
+ * 
+ * Space Complexity:
+ * - Average case: O(log n) for the recursive call stack.
+ * - Worst case: O(n) if the recursion doesn't divide the array evenly.
  * 
  * @param {Array} arr - The array to be sorted
  * @returns {Array} The sorted array
