@@ -14,11 +14,8 @@
  *   Building the initial heap takes O(n) time.
  *   The heapify operation is called n-1 times, each taking O(log n) time.
  * - Worst case: O(n log n)
- *   The worst case is the same as the average case because the time complexity
- *   is not dependent on the input data distribution.
  * - Best case: O(n log n)
- *   Even if the input is already sorted, the algorithm still needs to build 
- *   the heap and perform the heapify operations.
+ *   Even if the input is already sorted, the algorithm still needs to build the heap and perform the heapify operations.
  * 
  * The time complexity can be broken down as follows:
  * 1. Building the heap: O(n)
@@ -26,6 +23,16 @@
  * Total: O(n) + O(n log n) = O(n log n)
  * 
  * Space Complexity: O(1) as it sorts in-place
+ * 
+ * Note: Heap Sort offers several advantages over other sorting algorithms:
+ * 1. Consistent O(n log n) time complexity regardless of input distribution,
+ *    making it efficient for large datasets and worst-case scenarios.
+ * 2. In-place sorting, requiring only O(1) additional memory.
+ * 3. Not stable, but can be made stable with additional modifications.
+ * 4. Excellent for systems concerned with worst-case scenarios.
+ * 5. Efficient for sorting partially sorted arrays or streams of data.
+ * However, in practice, it often performs slower than well-implemented Quick Sort
+ * due to poor cache performance and more comparisons/swaps.
  * 
  * @param {Array} arr - The array to be sorted
  * @returns {Array} The sorted array

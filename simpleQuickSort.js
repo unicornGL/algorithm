@@ -34,7 +34,6 @@
  * @param {Array} arr - The array to be sorted
  * @returns {Array} The sorted array
  */
-
 export default simpleQuickSort = (arr) => {
     const length = arr.length
 

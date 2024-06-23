@@ -26,6 +26,9 @@
  * - Average case: O(log n) for the recursive call stack.
  * - Worst case: O(n) if the recursion doesn't divide the array evenly.
  * 
+ * Note: Random Quick Sort significantly improves upon the basic Quick Sort,
+ * by reducing the likelihood of encountering worst-case scenarios, especially for sorted or nearly sorted arrays.
+ * 
  * @param {Array} arr - The array to be sorted
  * @returns {Array} The sorted array
  */

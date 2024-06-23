@@ -25,12 +25,15 @@
  * - Average case: O(log n) for the recursive call stack.
  * - Worst case: O(n) if the recursion doesn't divide the array evenly.
  * 
+ * Note: In-place Quick Sort is memory-efficient as it doesn't require additional array allocations for sorting.
+ * However, it's vulnerable to worst-case scenarios with already sorted or reverse sorted arrays. 
+ * To mitigate this, consider using random pivot selection or the median-of-three method for choosing the pivot.
+ * 
  * @param {Array} arr - The array to be sorted
  * @param {number} [low=0] - The starting index of the portion to be sorted
  * @param {number} [high=arr.length - 1] - The ending index of the portion to be sorted
  * @returns {Array} The sorted array
  */
-
 export default inPlaceQuickSort = (arr, low = 0, high = arr.length - 1) => {
     if (low < high) {
         const pivotIndex = partition(arr, low, high)
@@ -45,11 +48,6 @@ export default inPlaceQuickSort = (arr, low = 0, high = arr.length - 1) => {
 
 /**
  * Partitions the array around a pivot element (the last element in this implementation)
- * 
- * This function does the following:
- * 1. Chooses the last element as the pivot
- * 2. Partitions the array so that elements smaller than the pivot are on the left and elements larger than the pivot are on the right
- * 3. Moves the pivot to its final sorted position
  * 
  * @param {Array} arr - The array to be partitioned
  * @param {number} low - The starting index of the portion to be partitioned
