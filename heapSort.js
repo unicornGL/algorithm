@@ -1,9 +1,31 @@
 /**
  * Heap Sort (Max-Heap Ver.)
- * 1. Build max-heap
- * 2. Repeatedly extract max element and restore heap property
+ * This algorithm sorts an array by first building a max heap from the input data,
+ * then repeatedly extracting the maximum element from the heap and rebuilding the heap.
  * 
- * Time Complexity: O(n log n)
+ * Algorithm steps:
+ * 1. Build a max heap from the input data
+ * 2. Swap the root (maximum element) with the last element of the heap
+ * 3. Reduce the size of the heap by 1 and heapify the root
+ * 4. Repeat steps 2-3 until the heap size is 1
+ * 
+ * Time Complexity:
+ * - Average case: O(n log n)
+ *   Building the initial heap takes O(n) time.
+ *   The heapify operation is called n-1 times, each taking O(log n) time.
+ * - Worst case: O(n log n)
+ *   The worst case is the same as the average case because the time complexity
+ *   is not dependent on the input data distribution.
+ * - Best case: O(n log n)
+ *   Even if the input is already sorted, the algorithm still needs to build 
+ *   the heap and perform the heapify operations.
+ * 
+ * The time complexity can be broken down as follows:
+ * 1. Building the heap: O(n)
+ * 2. Heapify operations: O(n log n)
+ * Total: O(n) + O(n log n) = O(n log n)
+ * 
+ * Space Complexity: O(1) as it sorts in-place
  * 
  * @param {Array} arr - The array to be sorted
  * @returns {Array} The sorted array
@@ -13,11 +35,11 @@ export default heapSort = (arr) => {
 
     buildMaxHeap(arr)
 
-    // no need to maxHeapify while only one number left
+    // No need to maxHeapify while only one number left
     for (let i = heapSize; i > 0; i--) {
-        // swap the largest number (index 0) to last
+        // Swap the largest number (index 0) to last
         [arr[0], arr[i]] = [arr[i], arr[0]]
-        // last number is sorted
+        // Last number is sorted
         heapSize--
         maxHeapify(arr, 0, heapSize)
     }
@@ -33,7 +55,7 @@ export default heapSort = (arr) => {
 const buildMaxHeap = (arr) => {
     const length = arr.length
 
-    // start from the last non-leaf node
+    // Start from the last non-leaf node
     for (let i = Math.floor(length / 2) - 1; i >= 0; i--) {
         maxHeapify(arr, i, length - 1)
     }
@@ -43,11 +65,11 @@ const buildMaxHeap = (arr) => {
  * Max-heapify function to maintain max-heap property
  * 
  * @param {Array} arr - The array being heapified
- * @param {number} i - The index of the root of the subtree
+ * @param {number} i - The index of the root of the sub-tree
  * @param {number} heapSize - The size of the heap
  */
 const maxHeapify = (arr, i, heapSize) => {
-    // set left and right child index
+    // Set left and right child index
     const l = 2 * i + 1, r = 2 * i + 2
     let largest = i
 
@@ -56,7 +78,7 @@ const maxHeapify = (arr, i, heapSize) => {
 
     if (largest !== i) {
         [arr[i], arr[largest]] = [arr[largest], arr[i]]
-        // recursively max-heapify the affected subtree
+        // Recursively max-heapify the affected sub-tree
         maxHeapify(arr, largest, heapSize)
     }
 }
