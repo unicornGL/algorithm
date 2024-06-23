@@ -1,10 +1,11 @@
 /**
  * Random Quick Sort
- * -> Based on Quick Sort, but randomly pick pivot to prevent worst-case scenarios where the largest or smallest element becomes the pivot in an already sorted or nearly sorted array
+ * This algorithm is Based on Quick Sort but randomly pick pivot to prevent worst-case scenarios,
+ * where the largest or smallest element becomes the pivot in an already sorted or nearly sorted array.
  * 
  * Time Complexity:
  * - Average case: O(n log n)
- * - Worst case: O(n^2) (rare due to random pivot selection)
+ * - Worst case: O(n²) (rare due to random pivot selection)
  * - Best case: O(n log n)
  * 
  * @param {Array} arr - The array to be sorted
@@ -29,25 +30,25 @@ export default randomQuickSort = (arr) => {
 const partition = (arr) => {
     const length = arr.length
 
-    // select pivot randomly
+    // Select pivot randomly
     let pivotIndex = Math.floor(Math.random() * length)
 
-    // move pivot to front
+    // Move pivot to front
     arr.unshift(arr.splice(pivotIndex, 1)[0])
 
-    // splitNumber is number next to pivot
+    // SplitNumber is number next to pivot
     let splitIndex = 1
 
     for (let i = 1; i < length; i++) {
         if (arr[i] < arr[0]) {
-            // move number smaller than pivot to the left of splitIndex
+            // Move number smaller than pivot to the left of splitIndex
             [arr[splitIndex], arr[i]] = [arr[i], arr[splitIndex]]
-            // make splitIndex the first number larger than pivot
+            // Make splitIndex the first number larger than pivot
             ++splitIndex
         }
     }
 
-    // swap pivot w/ the last number smaller than pivot
+    // Swap pivot w/ the last number smaller than pivot
     [arr[0], arr[splitIndex - 1]] = [arr[splitIndex - 1], arr[0]]
 
     return splitIndex - 1
