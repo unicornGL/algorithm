@@ -7,6 +7,7 @@ import inPlaceQuickSort from './inPlaceQuickSort'
 import randomQuickSort from './randomQuickSort'
 import heapSort from './heapSort'
 import countingSort from './countingSort'
+import radixSort from './radixSort'
 
 describe('bubbleSort test', () => {
     test('empty array', () => {
@@ -302,5 +303,38 @@ describe('countingSort test', () => {
         const sortedArray = [...largeArray].sort((a, b) => a - b)
 
         expect(countingSort(largeArray)).toEqual(sortedArray)
+    })
+})
+
+describe('radixSort test', () => {
+    test('empty array', () => {
+        expect(radixSort([])).toEqual([])
+    })
+
+    test('single number array', () => {
+        expect(radixSort([5])).toEqual([5])
+    })
+
+    test('sorted array', () => {
+        expect(radixSort([1, 2, 3, 4, 5])).toEqual([1, 2, 3, 4, 5])
+    })
+
+    test('reversed sorted array', () => {
+        expect(radixSort([5, 4, 3, 2, 1])).toEqual([1, 2, 3, 4, 5])
+    })
+
+    test('array w/ duplicate numbers', () => {
+        expect(radixSort([3, 1, 4, 1, 5, 9, 2, 6, 5])).toEqual([1, 1, 2, 3, 4, 5, 5, 6, 9])
+    })
+
+    test('array w/ negative numbers', () => {
+        expect(radixSort([-3, 0, 1, -10, 5])).toEqual([-10, -3, 0, 1, 5])
+    })
+
+    test('large array', () => {
+        const largeArray = Array.from({ length: 10000 }, () => Math.floor(Math.random() * 10000))
+        const sortedArray = [...largeArray].sort((a, b) => a - b)
+
+        expect(radixSort(largeArray)).toEqual(sortedArray)
     })
 })
